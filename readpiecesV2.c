@@ -128,7 +128,7 @@ void	fill_board_info(boardinfo *binfo, char *boardstr)
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-void	gen_piece(char **board) // !
+void	gen_piece(char **board, char *boardstr) // !
 {
 
 }
