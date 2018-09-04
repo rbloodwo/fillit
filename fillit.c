@@ -299,6 +299,8 @@ int		check_cols(t_boardinfo *binfo)
 	{
 		if (s[i] != '.' && s[i] != '#' && s[i] != '\n')
 			return (0);
+		if (i > 0 && s[i] == '\n' && s[i - 1] == '\n' && s[i + 1] == '\n')
+			return (0);
 		if (s[i] != '\n')
 			c++;
 		if (s[i] == '\n' && c != 0 && c != 4)
