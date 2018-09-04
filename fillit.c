@@ -312,11 +312,33 @@ int		check_cols(t_boardinfo *binfo)
 	return (1);
 }
 
+int		check_gaps(t_boardinfo *binfo) // new function to check blank spaces between pieces are blank
+{
+	int		i;
+	int		row;
+	char	*s;
+
+	i = 0;
+	row = 0;
+	s = binfo->boardstr;
+	while (s[i] != '\0')
+	{
+		if (s[i] == '\n')
+			row++;
+		if (row % 5 == 4 && s[i] != '\n')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int		validate_file(t_boardinfo *binfo)
 {
 	if (check_numrows(binfo) == 0)
 		return (0);
 	if (check_cols(binfo) == 0)
+		return (0);
+	if (check_gaps(binfo) == 0)
 		return (0);
 	if (binfo->tcount < 1 || binfo->tcount > 26)
 		return (0);
